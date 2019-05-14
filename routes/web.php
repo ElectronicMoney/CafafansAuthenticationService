@@ -11,6 +11,10 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+//Authors Micro Service Routes
+$router->get('/users', 'UserMicroService\UserController@index');
+$router->post('/users', 'UserMicroService\UserController@store');
+$router->get('/users/{user}', 'UserMicroService\UserController@show');
+$router->put('/users/{user}', 'UserMicroService\UserController@update');
+$router->patch('/users/{user}', 'UserMicroService\UserController@update');
+$router->delete('/users/{user}', 'UserMicroService\UserController@destroy');

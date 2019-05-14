@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Services\UserService;
-use App\Services\CafafansHttpRestApi;
+namespace App\Services;
+use App\HttpRestApiClient\CafafansHttpRestApi;
 
 class  UserService
 {

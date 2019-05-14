@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\HttpRestApiClient;
 use App\Traits\HttpRestApiService;
 
 class  CafafansHttpRestApi

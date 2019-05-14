@@ -3,14 +3,14 @@
 namespace App\Services;
 use App\HttpRestApiClient\CafafansHttpRestApi;
 
-class  UserService
+class  UserService extends CafafansHttpRestApi
 {
     /**
      * The baseUri to consume the authors service
      * @var string
      */
     public $baseUri;
-    public $httpRestApiClient;
+    // public;
 
     /**
      * Creating a new User instance.
@@ -19,7 +19,6 @@ class  UserService
      */
     public function __construct() {
         $this->baseUri = config('services.users.base_uri');
-        $this->httpRestApiClient = new CafafansHttpRestApi($this->baseUri);
     }
 
     /**
@@ -28,7 +27,7 @@ class  UserService
      * @return string
      */
     public function getUsers() {
-        return $this->httpRestApiClient->getServices('/users');
+        return $this->getServices('/users')->getBody();
     }
 
     /**
@@ -37,7 +36,7 @@ class  UserService
      * @return string
      */
     public function createUser($data) {
-        return $this->httpRestApiClient->postService('/users', 'POST', $data);
+        return $this->postService('/users', 'POST', $data)->getBody();
     }
 
     /**
@@ -46,7 +45,7 @@ class  UserService
      * @return string
      */
     public function getUser($userId) {
-        return $this->httpRestApiClient->getService('/users', $userId);
+        return $this->getService('/users', $userId)->getBody();
     }
 
     /**
@@ -56,7 +55,7 @@ class  UserService
      * @return string
      */
     public function editUser($data, $userId) {
-        return $this->httpRestApiClient->putService('/users', $data, $userId);
+        return $this->putService('/users', $data, $userId)->getBody();
     }
 
     /**
@@ -65,6 +64,6 @@ class  UserService
      * @return string
      */
     public function deleteUser($userId) {
-        return $this->httpRestApiClient->deleteService('/users', $userId);
+        return $this->deleteService('/users', $userId)->getBody();
     }
 }

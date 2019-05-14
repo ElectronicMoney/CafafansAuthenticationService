@@ -1,9 +1,9 @@
 <?php
 
-namespace App\AuthorizationService\Authorization;
-use App\Services\CafafansHttpRestApi;
+namespace App\Security\AuthorizationService\Authorization;
+use App\HttpRestApiClient\CafafansHttpRestApi;
 
-class Authorization
+class Authorization extends CafafansHttpRestApi
 {
 
     /**
@@ -11,7 +11,6 @@ class Authorization
      * @var string
      */
     public $baseUri;
-    public $httpRestApiClient;
 
     /**
      * Creating a new User instance.
@@ -20,6 +19,5 @@ class Authorization
      */
     public function __construct() {
         $this->baseUri = config('services.security.authorization.base_uri');
-        $this->httpRestApiClient = new CafafansHttpRestApi($this->baseUri);
     }
 }

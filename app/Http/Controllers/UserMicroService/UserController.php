@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\UserMicroService;
+use App\Http\Controllers\Controller;
 
-class ExampleController extends Controller
+class UserController extends Controller
 {
     /**
      * Create a new controller instance.

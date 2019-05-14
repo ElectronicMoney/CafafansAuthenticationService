@@ -19,7 +19,7 @@ class  UserService
      */
     public function __construct() {
         $this->baseUri = config('services.users.base_uri');
-        $this->httpRestApiClient = new CafafansHttpRestApi();
+        $this->httpRestApiClient = new CafafansHttpRestApi($this->baseUri);
     }
 
     /**

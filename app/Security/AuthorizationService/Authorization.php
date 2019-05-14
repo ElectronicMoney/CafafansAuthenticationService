@@ -11,7 +11,7 @@ class Authorization
      * @var string
      */
     public $baseUri;
-    public $httpRestApi;
+    public $httpRestApiClient;
 
     /**
      * Creating a new User instance.
@@ -19,7 +19,7 @@ class Authorization
      * @return void
      */
     public function __construct() {
-        $this->baseUri = config('security.authorization.base_uri');
-        $this->httpRestApi = new CafafansHttpRestApi();
+        $this->baseUri = config('services.security.authorization.base_uri');
+        $this->httpRestApiClient = new CafafansHttpRestApi($this->baseUri);
     }
 }

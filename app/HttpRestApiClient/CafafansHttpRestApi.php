@@ -8,6 +8,21 @@ class  CafafansHttpRestApi
     use HttpRestApiService;
 
     /**
+     * The baseUri to consume the authors service
+     * @var string
+     */
+    public $baseUri;
+
+    /**
+     * Creating a new User instance.
+     *
+     * @return void
+     */
+    public function __construct($uri) {
+        $this->baseUri = $uri;
+    }
+
+    /**
      * creating an author from micro service
      * @param array $data
      * @return string
@@ -32,7 +47,7 @@ class  CafafansHttpRestApi
      * @return string
      */
     public function getService($path, $serviceId) {
-        return $this->httpRequest('GET', "/{$path}/{$serviceId}");
+        return $this->httpRequest('GET', "{$path}/{$serviceId}");
     }
 
     /**
@@ -42,7 +57,7 @@ class  CafafansHttpRestApi
      * @return string
      */
     public function putService($path, $data, $serviceId) {
-        return $this->httpRequest('PUT', "/{$path}/{$serviceId}", $data);
+        return $this->httpRequest('PUT', "{$path}/{$serviceId}", $data);
     }
 
     /**
@@ -52,7 +67,7 @@ class  CafafansHttpRestApi
      * @return string
      */
     public function patchService($path, $data, $serviceId) {
-        return $this->httpRequest('PATCH', "/{$path}/{$serviceId}", $data);
+        return $this->httpRequest('PATCH', "{$path}/{$serviceId}", $data);
     }
 
     /**
@@ -61,6 +76,6 @@ class  CafafansHttpRestApi
      * @return string
      */
     public function deleteService($path, $serviceId) {
-        return $this->httpRequest('DELETE', "/{$path}/{$serviceId}");
+        return $this->httpRequest('DELETE', "{$path}/{$serviceId}");
     }
 }

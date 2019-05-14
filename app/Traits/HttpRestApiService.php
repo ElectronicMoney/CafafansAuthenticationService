@@ -3,7 +3,7 @@
 namespace App\Traits;
 use GuzzleHttp\Client;
 
-trait ExternalService
+trait HttpRestApiService
 {
     /**
      * Send a request to any service

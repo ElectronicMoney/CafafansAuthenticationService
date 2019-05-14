@@ -10,7 +10,7 @@ class  UserService
      * @var string
      */
     public $baseUri;
-    public $httpRestApi;
+    public $httpRestApiClient;
 
     /**
      * Creating a new User instance.
@@ -19,7 +19,7 @@ class  UserService
      */
     public function __construct() {
         $this->baseUri = config('services.users.base_uri');
-        $this->httpRestApi = new CafafansHttpRestApi();
+        $this->httpRestApiClient = new CafafansHttpRestApi();
     }
 
     /**
@@ -28,7 +28,7 @@ class  UserService
      * @return string
      */
     public function getUsers() {
-        return $this->httpRestApi->getServices('/users');
+        return $this->httpRestApiClient->getServices('/users');
     }
 
     /**
@@ -37,7 +37,7 @@ class  UserService
      * @return string
      */
     public function createUser($data) {
-        return $this->httpRestApi->postService('/users', 'POST', $data);
+        return $this->httpRestApiClient->postService('/users', 'POST', $data);
     }
 
     /**
@@ -46,7 +46,7 @@ class  UserService
      * @return string
      */
     public function getUser($userId) {
-        return $this->httpRestApi->getService('/users', $userId);
+        return $this->httpRestApiClient->getService('/users', $userId);
     }
 
     /**
@@ -56,7 +56,7 @@ class  UserService
      * @return string
      */
     public function editUser($data, $userId) {
-        return $this->httpRestApi->putService('/users', $data, $userId);
+        return $this->httpRestApiClient->putService('/users', $data, $userId);
     }
 
     /**
@@ -65,6 +65,6 @@ class  UserService
      * @return string
      */
     public function deleteUser($userId) {
-        return $this->httpRestApi->deleteService('/users', $userId);
+        return $this->httpRestApiClient->deleteService('/users', $userId);
     }
 }
